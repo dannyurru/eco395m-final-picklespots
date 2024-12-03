@@ -14,7 +14,7 @@ CREATE TABLE "Temperature"
 (
     "DataId" INT NOT NULL,
     "Date" TIMESTAMP,
-    "Temp" FLOAT(5, 2),
+    "Temp" FLOAT,
     "CityId" INT NOT NULL,
     CONSTRAINT "PK_Temperature" PRIMARY KEY ("DataId")
 );
