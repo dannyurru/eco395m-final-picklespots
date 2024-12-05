@@ -6,6 +6,7 @@
 We are scraping data for the following information for this project:
 <li>Daily weather for the top 50 visited cities in the United States (Average Temperature and Weather Description)</li>
 <li>Prominent trails in and nearby the aforementioned cities</li>
+<h2 align="center">Reproducibility</h2>
 <h2 align="center">Limitations of Project</h2>
 <li>We are only using information for the 50 most visited cities in the United States, so we are limiting the interface's responses to the data we are scraping from.</li>
 <li>We are limiting our activities to that of trails, so more urban destinations might be limited in the number of trails that can be scraped and recommended.</li>
