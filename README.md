@@ -15,3 +15,4 @@ The inclusion of other outdoor activitues - such as parks, kayaking, and sports 
 <h2 align="center">Sources of Datatsets</h2>
 <li>The cities we are using for this project were selected by this website as the top 50 travel destinations in the United States: https://www.aaa.com/tripcanvas/article/50-top-travel-destinations-in-the-us-CM534#methodology</li>
 <li>The list of trails comes from AllTrails: https://www.alltrails.com/</li>
+<li>The weather data comes from the National Centers for Environmental Information: https://www.ncei.noaa.gov/archive</li>
