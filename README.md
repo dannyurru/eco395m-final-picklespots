@@ -1,7 +1,8 @@
 <h1 align="center">Safe Travels Project</h1>
 <h2 align="center">Project Goal of Analysis</h2>
-<p>Based on a selected vacation destination, we want to create an interface that will recommend nearby trails as well as present weather data and corresponding outfit suggestions.</p>
-<h2 align="center">Project Description and Findings</h2> 
+<p>Based on a selected vacation destination of the top 50 visited cities in the United States, we want to create an interface that will recommend nearby trails as well as present weather data and corresponding outfit suggestions.</p>
+<h2 align="center">Project Description and Findings</h2>
+We will scrape data for the trails in and nearby each city, along with daily weather information for each city from the year 2000 up to this year, which includes the average daily temperature and a generalized weather adjective to describe the weather that day. The data is then put into an SQL database so that we can run queries through the SQLAlchemy engine. The interface is created through Streamlit, which is an applet that projects python code in a user-friendly manner.
 <h2 align="center">Methodology</h2>
 We are scraping data for the following information for this project:
 <li>Daily weather for the top 50 visited cities in the United States (Average Temperature and Weather Description)</li>
