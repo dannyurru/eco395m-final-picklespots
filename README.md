@@ -13,6 +13,7 @@ We are scraping data for the following information for this project:
 <h2 align="center">Extensions of Project</h2>
 A good start for extending the model can be to include more cities in each state. The inclusion of all major cities in the United States can broaden the recommendations given for users of the interface for other trails. 
 The inclusion of other outdoor activitues - such as parks, kayaking, and sports - can give users more variety what they could do in the city they select.
+When scraping data on the NCEI, some of the data will not scrape due to certain issues with the website allowing all data to be scraped simultaneously. 
 <h2 align="center">Sources of Datatsets</h2>
 <li>The cities we are using for this project were selected by this website as the top 50 travel destinations in the United States: https://www.aaa.com/tripcanvas/article/50-top-travel-destinations-in-the-us-CM534#methodology</li>
 <li>The list of trails comes from AllTrails: https://www.alltrails.com/</li>
