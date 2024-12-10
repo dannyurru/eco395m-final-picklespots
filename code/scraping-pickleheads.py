@@ -77,7 +77,7 @@ def scrape_city(city):
 
     for court in data_block_indivs:
         dict_ = {
-            "city": city,
+            "city": city.replace("+", " "),
             "name": court.find("div", class_ = "chakra-stack css-1mvcjxj").find("p").string,
         }
 
