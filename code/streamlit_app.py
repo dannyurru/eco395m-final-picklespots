@@ -77,6 +77,8 @@ def main():
         st.image(image, width=1000)
     except FileNotFoundError:
         st.warning("Image file not found. Please ensure the file is in the working directory.")
+    
+       
 
     st.title("Pickleball Court Finder")
     st.markdown("Find pickleball courts in your city and receive advice on what to wear based on the weather!")
@@ -97,11 +99,7 @@ def main():
         if courts:
             st.subheader(f"Court Information for {city_name}:" + (f" (Minimum {min_courts} courts)" if min_courts else ""))
             for court in courts:
-                court_name = court[0]
-                court_query = f"{court_name} {city_name}".replace(" ", "+")
-                google_maps_link = f"https://www.google.com/maps/search/?api=1&query={court_query}"
-
-                st.markdown(f"[**{court_name}**]({google_maps_link})", unsafe_allow_html=True)
+                st.write(f"**Court Name**: {court[0]}")
                 st.write(f"**Number of Courts**: {court[1]}")
                 st.write(f"**Lines**: {court[2]}")
                 st.write(f"**Nets**: {court[3]}")
