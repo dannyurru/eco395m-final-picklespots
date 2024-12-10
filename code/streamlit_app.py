@@ -5,7 +5,6 @@ import os
 import requests
 from dotenv import load_dotenv
 from PIL import Image
-from database import create_connection
 
 <<<<<<< HEAD
 st.title("PickleSpots")
