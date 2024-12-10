@@ -1,5 +1,5 @@
 <h1 align="center">PickleSpots Project</h1>
-<p align="center"> <img src="https://cdn.sanity.io/images/jvolei4i/production/805cc6aceadb385fe3e80f4c905591837d7a9c8b-736x586.webp" alt="Description" width="750"> </p>
+<p align="center"> <img src="https://cdn.sanity.io/images/jvolei4i/production/805cc6aceadb385fe3e80f4c905591837d7a9c8b-736x586.webp" alt="Description" width="500"> </p>
 <h2 align="center">Project Goal of Analysis</h2>
 <p>Based on a selected vacation destination of the top 50 visited cities in the United States, we want to create an interface that will recommend nearby pickleball courts as well as present weather data and corresponding outfit suggestions.</p>
 <h2 align="center">Project Description and Findings</h2>
