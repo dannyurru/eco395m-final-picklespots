@@ -1,6 +1,6 @@
 <h1 align="center">***Tentative Pickleball Project Title***</h1>
 <h2 align="center">Project Goal</h2>
-<p>Based on a list of the top 50 visited cities in the United States (https://www.aaa.com/tripcanvas/article/50-top-travel-destinations-in-the-us-CM534#methodology), we want to create an interface that will recommend nearby pickleball courts as well as present weather data and corresponding outfit suggestions to users.</p>
+<p>Based on a list of the top 50 visited cities in the United States, we want to create an interface that will recommend nearby pickleball courts as well as present weather data and corresponding outfit suggestions to users.</p>
 <h2 align="center">Project Description</h2>
 We scraped data for the pickleball courts in and nearby each city, along with daily weather information for each city from the year ***Year is Tentative*** up to this year, which includes the average daily temperature and a generalized weather adjective to describe the weather that day. The data is then turned into a CSV and uploaded to a SQL database so that we can run queries through the SQLAlchemy engine. We will connect the weather data to the corresponding cities in the pickleball data through the schema of the SQL database. The interface is created through Streamlit, an applet that projects Python code in a user-friendly manner.
 <h2 align="center">Methodology</h2>
