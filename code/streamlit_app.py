@@ -5,13 +5,8 @@ import os
 import requests
 from dotenv import load_dotenv
 from PIL import Image
-from database import create_connection
 
-<<<<<<< HEAD
 st.title("PickleSpots")
-=======
-st.title("Safe Travels/PickleSpots")
->>>>>>> 1965863f18859b64578b99898d92f9e2fe3144f3
 st.text("This is an app designed to recommend a nearby pickleball court and corresponding outfit suggestions for any vacationer traveling to a destination of the top 50 most-visited cities in the United States. This recommendation will be based on proximity, weather, and the number of courts available at the nearby places.")
 load_dotenv()
 
