@@ -5,34 +5,11 @@ import os
 import requests
 from dotenv import load_dotenv
 from PIL import Image
+from database import create_connection
 
 st.title("Safe Travels/PickleSpots")
 st.text("This is an app designed to recommend a nearby pickleball court and corresponding outfit suggestions for any vacationer traveling to a destination of the top 50 most-visited cities in the United States. This recommendation will be based on proximity, weather, and the number of courts available at the nearby places.")
 load_dotenv()
-
-try:
-    DATABASE_HOST = os.environ["DATABASE_HOST"]
-    DATABASE_DATABASE = os.environ["DATABASE_DATABASE"]
-    DATABASE_USERNAME = os.environ["DATABASE_USERNAME"]
-    DATABASE_PASSWORD = os.environ["DATABASE_PASSWORD"]
-    DATABASE_PORT = os.environ["DATABASE_PORT"]
-except KeyError as e:
-    st.error(f"Missing environment variable: {e}")
-    st.stop()
-
-def create_connection():
-    try:
-        conn = psycopg2.connect(
-            host=DATABASE_HOST,
-            database=DATABASE_DATABASE,
-            user=DATABASE_USERNAME,
-            password=DATABASE_PASSWORD,
-            port=DATABASE_PORT
-        )
-        return conn
-    except psycopg2.Error as e:
-        st.error(f"Database connection error: {e}")
-        st.stop()
 
 def get_courts_by_city(city_name):
     conn = create_connection()
