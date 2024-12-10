@@ -77,19 +77,17 @@ def main():
         st.image(image, width=1000)
     except FileNotFoundError:
         st.warning("Image file not found. Please ensure the file is in the working directory.")
-    
-       
 
     st.title("Pickleball Court Finder")
     st.markdown("Find pickleball courts in your city and receive advice on what to wear based on the weather!")
 
     # Dropdown for city selection
     cities = get_available_cities()
-    city_name = st.selectbox("Select your city", options=cities)
+    city_name = st.selectbox("Select your city", options=["Select city"] + cities) 
 
     # Dropdown for number of courts
     court_options = ["Any"] + list(range(1, 6))  # "Any" for no minimum, followed by numbers 1-5
-    selected_court_option = st.selectbox("Select the minimum number of courts", options=court_options)
+    selected_court_option = st.selectbox("Select the minimum number of courts", options=court_options, index=0)
 
     min_courts = None if selected_court_option == "Any" else selected_court_option
 
@@ -99,7 +97,11 @@ def main():
         if courts:
             st.subheader(f"Court Information for {city_name}:" + (f" (Minimum {min_courts} courts)" if min_courts else ""))
             for court in courts:
-                st.write(f"**Court Name**: {court[0]}")
+                court_name = court[0]
+                court_query = f"{court_name} {city_name}".replace(" ", "+")
+                google_maps_link = f"https://www.google.com/maps/search/?api=1&query={court_query}"
+
+                st.markdown(f"[**{court_name}**]({google_maps_link})", unsafe_allow_html=True)
                 st.write(f"**Number of Courts**: {court[1]}")
                 st.write(f"**Lines**: {court[2]}")
                 st.write(f"**Nets**: {court[3]}")
