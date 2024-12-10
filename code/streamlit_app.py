@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 from PIL import Image
 
-st.title("Safe Travels")
+st.title("Safe Travels/ PickleSpots")
 st.text("This is an app designed to recommend a nearby pickleball court and corresponding outfit suggestions for any vacationer traveling to a destination of the top 50 most-visited cities in the United States. This recommendation will be based on proximity, weather, and the number of courts available at the nearby places.")
 load_dotenv()
 
@@ -57,7 +57,7 @@ def get_courts_by_city(city_name):
 # Streamlit UI components
 def main():
     try:
-        image_path = Path("eco395m-safe-travels/pickleball_stock_image.jpg")
+        image_path = Path("../pickleball_stock_image.jpg")
         image = Image.open(image_path)
         st.image(image, width=1000)
     except FileNotFoundError:
