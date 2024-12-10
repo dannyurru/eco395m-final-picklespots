@@ -68,7 +68,7 @@ def main():
     st.title("Pickleball Court Finder")
     st.markdown("Find pickleball courts in your city and receive advice on what to wear based on the weather!")
     
-    city_name = st.text_input("Enter the name of the city", placeholder="e.g., Austin")
+    city_name = st.text_input("Enter the name of your city below (Case sensitive, please capitalize the name of your city)", placeholder="e.g., Austin")
     
     if city_name:
         courts = get_courts_by_city(city_name)
