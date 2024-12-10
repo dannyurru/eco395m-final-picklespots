@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 from PIL import Image
 
-st.title("PickleSpots: Pickleball court finder")
+st.title("PickleSpots")
 st.text("This is an app designed to recommend a nearby pickleball court and corresponding outfit suggestions for any vacationer traveling to a destination of the top 50 most-visited cities in the United States. This recommendation will be based on proximity, weather, and the number of courts available at the nearby places.")
 load_dotenv()
 
