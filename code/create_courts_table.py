@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 import psycopg2
 import os
 
-database_url = "postgresql://postgres:itskruegingtime@34.174.76.149:5432/safe-travels"
+database_url = f"postgresql://{os.environ["DATABASE_USERNAME"]}:{os.environ["DATABASE_PASSWORD"]}@{os.environ["DATABASE_HOST"]}:{os.environ["DATABASE_PORT"]}/{os.environ["DATABASE_DATABASE"]}"
 
 csv_file = os.path.join("artifacts", "courts.csv")
 df = pd.read_csv(csv_file)
@@ -38,5 +38,3 @@ for _, row in df.iterrows():
 courts_df = pd.DataFrame(courts_data)
 
 courts_df.to_sql('Courts', engine, if_exists='append', index=False)
-
-print("Data loaded successfully.")

@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, Table, MetaData
 from sqlalchemy.orm import sessionmaker
 
-database_url = "postgresql://postgres:itskruegingtime@34.174.76.149:5432/safe-travels"
+database_url = f"postgresql://{os.environ["DATABASE_USERNAME"]}:{os.environ["DATABASE_PASSWORD"]}@{os.environ["DATABASE_HOST"]}:{os.environ["DATABASE_PORT"]}/{os.environ["DATABASE_DATABASE"]}"
 engine = create_engine(database_url)
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -79,5 +79,3 @@ for city in cities:
 session.commit()
 
 session.close()
-
-print("Cities have been successfully inserted into the City table.")
