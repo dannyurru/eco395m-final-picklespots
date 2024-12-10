@@ -1,12 +1,19 @@
 <h1 align="center">***Tentative Pickleball Project Title (PickleSpots?)***</h1>
+
 <h2 align="center">Project Goal of Analysis</h2>
 <p>Based on a selected vacation destination of the top 50 visited cities in the United States, we want to create an interface that will recommend nearby pickleball courts as well as present weather data and corresponding outfit suggestions.</p>
 <h2 align="center">Project Description and Findings</h2>
 We will scrape data for the pickleballs in and nearby each city, along with daily weather information for each city from the year ***Year is Tentaive*** up to this year, which includes the average daily temperature and a generalized weather adjective to describe the weather that day. The data is then turned into a CSV abd uploaded onto an SQL database so that we can run queries through the SQLAlchemy engine. We will connect the weather data to the correswponding cities in the pickleball data through the schema of the SQL database. The interface is created through Streamlit, which is an applet that projects python code in a user-friendly manner.
+=======
+<h2 align="center">Project Goal</h2>
+<p>Based on a list of the top 50 visited cities in the United States, we want to create an interface that will recommend nearby pickleball courts as well as present weather data and corresponding outfit suggestions to users.</p>
+<h2 align="center">Project Description</h2>
+We scraped data for the pickleball courts in and nearby each city, along with daily weather information for each city from the year ***Year is Tentative*** up to this year, which includes the average daily temperature and a generalized weather adjective to describe the weather that day. The data is then turned into a CSV and uploaded to a SQL database so that we can run queries through the SQLAlchemy engine. We will connect the weather data to the corresponding cities in the pickleball data through the schema of the SQL database. The interface is created through Streamlit, an applet that projects Python code in a user-friendly manner.
+main
 <h2 align="center">Methodology</h2>
 We are scraping data for the following information for this project:
 <li>Daily weather for the top 50 visited cities in the United States (Average Temperature and Weather Description)</li>
-<li>Prominent pickleball courts in and nearby the aforementioned cities</li>
+<li>Prominent pickleball courts in and nearby the aforementioned cities, including data on the number of courts available at each location, and the state of the court's lines and net.</li>
 <h2 align="center">Reproducibility</h2>
 <h2 align="center">Limitations of Project</h2>
 <li>We are only using information for the 50 most visited cities in the United States, so we are limiting the interface's responses to the data we are scraping from.</li>
