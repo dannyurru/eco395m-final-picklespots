@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 from PIL import Image
 
-st.title("PickleSpots")
+st.title("Safe Travels/ PickleSpots")
 st.text("This is an app designed to recommend a nearby pickleball court and corresponding outfit suggestions for any vacationer traveling to a destination of the top 50 most-visited cities in the United States. This recommendation will be based on proximity, weather, and the number of courts available at the nearby places.")
 load_dotenv()
 
@@ -57,14 +57,12 @@ def get_courts_by_city(city_name):
 # Streamlit UI components
 def main():
     try:
-        image_path = Path("pickleball_stock_image.jpg")
+        image_path = Path("../pickleball_stock_image.jpg")
         image = Image.open(image_path)
         st.image(image, width=1000)
     except FileNotFoundError:
         st.warning("Image file not found. Please ensure the file is in the working directory.")
     
-       
-
     st.title("Pickleball Court Finder")
     st.markdown("Find pickleball courts in your city and receive advice on what to wear based on the weather!")
     
@@ -76,7 +74,11 @@ def main():
         if courts:
             st.subheader(f"Court Information for {city_name}:")
             for court in courts:
-                st.write(f"**Court Name**: {court[0]}")
+                court_name = court[0]
+                court_query = f"{court_name} {city_name}".replace(" ", "+")
+                google_maps_link = f"https://www.google.com/maps/search/?api=1&query={court_query}"
+            
+                st.markdown(f"[**{court_name}**]({google_maps_link})", unsafe_allow_html=True)
                 st.write(f"**Number of Courts**: {court[1]}")
                 st.write(f"**Lines**: {court[2]}")
                 st.write(f"**Nets**: {court[3]}")
