@@ -1,5 +1,5 @@
 <h1 align="center">PickleSpots Project</h1>
-<p align="center"> <img src="https://www.sagehill.com/wp-content/uploads/2022/02/texas-inn-property-pickleball-group-slide.jpg" alt="Description" width="1000"> </p>
+<p align="center"> <img src="https://www.sagehill.com/wp-content/uploads/2022/02/texas-inn-property-pickleball-group-slide.jpg" alt="Description" width="750"> </p>
 <h2 align="center">Project Goal of Analysis</h2>
 <p>Based on a selected vacation destination of the top 50 visited cities in the United States, we want to create an interface that will recommend nearby pickleball courts as well as present weather data and corresponding outfit suggestions.</p>
 <h2 align="center">Project Description and Findings</h2>
