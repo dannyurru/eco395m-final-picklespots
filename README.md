@@ -1,4 +1,4 @@
-<h1 align="center">***Tentative Pickleball Project Title***</h1>
+<h1 align="center">***Tentative Pickleball Project Title (PickleSpots?)***</h1>
 <h2 align="center">Project Goal</h2>
 <p>Based on a list of the top 50 visited cities in the United States, we want to create an interface that will recommend nearby pickleball courts as well as present weather data and corresponding outfit suggestions to users.</p>
 <h2 align="center">Project Description</h2>
