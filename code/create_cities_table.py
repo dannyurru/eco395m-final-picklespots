@@ -1,5 +1,8 @@
 from sqlalchemy import create_engine, Table, MetaData
+from dotenv import load_dotenv
 from sqlalchemy.orm import sessionmaker
+
+load_dotenv()
 
 database_url = f"postgresql://{os.environ["DATABASE_USERNAME"]}:{os.environ["DATABASE_PASSWORD"]}@{os.environ["DATABASE_HOST"]}:{os.environ["DATABASE_PORT"]}/{os.environ["DATABASE_DATABASE"]}"
 engine = create_engine(database_url)
