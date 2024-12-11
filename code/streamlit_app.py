@@ -71,6 +71,7 @@ def get_courts_by_city_and_number(city_name, min_courts):
     conn.close()
     return courts
 
+
 def get_google_maps_photo(court_name, city_name, api_key):
     search_query = f"{court_name} {city_name}"
     search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
@@ -96,6 +97,19 @@ def get_google_maps_photo(court_name, city_name, api_key):
                 return f"{photo_url}?maxwidth=400&photoreference={photo_reference}&key={api_key}"
     return None
 
+# List of 50 cities
+city_names = [
+    "Orlando", "Anaheim", "Las Vegas", "New York", "Denver", "Atlanta", 
+    "Phoenix", "Tampa", "Boston", "Fort Lauderdale", "San Diego", "Chicago", 
+    "Seattle", "Dallas", "Miami", "Washington", "San Francisco", "Charlotte", 
+    "Honolulu", "Houston", "Philadelphia", "Fort Myers", "Nashville", "Maui", 
+    "Salt Lake City", "Portland", "West Palm Beach", "Minneapolis", "Raleigh", 
+    "Jacksonville", "New Orleans", "Austin", "Savannah", "Cleveland", 
+    "St Louis", "Baltimore", "Pittsburgh", "Charleston", "Albuquerque", 
+    "Columbus", "Myrtle Beach", "San Jose", "Providence", "Burlington", 
+    "San Antonio", "Kalaoa", "Indianapolis", "Detroit", "Sacramento", "Oakland"
+]
+
 # Streamlit UI components
 def main():
     try:
@@ -104,6 +118,7 @@ def main():
         st.image(image, width=1000)
     except FileNotFoundError:
         st.warning("Image file not found. Please ensure the file is in the working directory.")
+
 
     st.title("Pickleball Court Finder")
     st.markdown("Find pickleball courts in your city and receive advice on what to wear based on the weather!")
@@ -120,6 +135,21 @@ def main():
 
     if city_name:
         courts = get_courts_by_city_and_number(city_name, min_courts)
+
+    
+    st.title("Pickleball Court Finder")
+    st.markdown("Find pickleball courts in your city and receive advice on what to wear based on the weather!")
+    
+    # Dropdown for city selection (no default selection)
+    city_name = st.selectbox(
+        "Select a city from the dropdown", 
+        options=["Select a city"] + city_names,  # Adding "Select a city" as the first option
+        index=0  # This will show the first option as default, which is "Select a city"
+    )
+    
+    if city_name != "Select a city":  # Ensure the user selects an actual city
+        courts = get_courts_by_city(city_name)
+        
 
         if courts:
             st.subheader(f"Court Information for {city_name}:" + (f" (Minimum {min_courts} courts)" if min_courts else ""))
