@@ -13,6 +13,24 @@ main
 We are scraping data for the following information for this project:
 <li>Daily weather for the top 50 visited cities in the United States (Average Temperature and Weather Description)</li>
 <li>Prominent pickleball courts in and nearby the aforementioned cities, including data on the number of courts available at each location, and the state of the court's lines and net.</li>
+
+<h2 align="center">Interactive Demonstration</h2>
+<h3>Step 1: Input Selection</h3>
+<p>Users select a city from the list of the top 50 most-visited U.S. cities. They can also specify the minimum number of pickleball courts they would like to see at a location.</p>
+<p align="center">
+  <img src="https://via.placeholder.com/700x400.png?text=Step+1%3A+City+Selection+Screenshot" alt="Step 1: City Selection Screenshot" width="700">
+</p>
+<h3>Step 2: Results</h3>
+<p>The app provides a list of pickleball courts in the selected city, including key information about each court such as the number of courts, condition of lines, and available nets. The app also generates a live weather update and outfit suggestions for travelers based on local weather conditions. Google Maps links for each court location are provided for ease of navigation.</p>
+<p align="center">
+  <img src="https://via.placeholder.com/700x400.png?text=Step+2%3A+Court+Results+Screenshot" alt="Step 2: Court Results Screenshot" width="700">
+</p>
+<h3>Step 3: Interactive Visuals</h3>
+<p>The interface also allows users to view court images and weather-related outfit suggestions. Images of the courts are pulled from Google’s Places API for an enhanced user experience.</p>
+<p align="center">
+  <img src="https://via.placeholder.com/700x400.png?text=Step+3%3A+Interactive+Visuals+Screenshot" alt="Step 3: Interactive Visuals Screenshot" width="700">
+</p>
+
 <h2 align="center">Reproducibility</h2>
 The reproducibility of this project is doable, but requires a lot of information. To scrape the courts on Pickleheads, the Selenium package is needed in order to gain access to the web browser since the website uses Cloudflare to prevent scraping. After obtaining the information of courts in the cities, . 
 <h2 align="center">Limitations of Project</h2>
