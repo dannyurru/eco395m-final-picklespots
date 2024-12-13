@@ -7,7 +7,7 @@ Searching for a public place where you can play the fastest-growing sport in Ame
 <h2 align="center">Methodology</h2>
 First and foremost, we used the <a href="https://seleniumbase.io">Selenium Base package</a> to simulate searches for publicly available, non-paid courts in each of the 50 cities on https://www.pickleheads.com/ and scraped the avaiable information on each instance. This method bypasses the Cloudflare security system that the site uses.  We then committed that information to a SQL database in GCP, through DBeaver and using the <a href="https://www.sqlalchemy.org">SQLAlchemy package</a>.<br>
 <br>
-In addition, **FILL IN HOW WE GOT WEATHER INFORMATION**<br>
+In addition, we used a custom web scraping script to gather accurate and up-to-date weather information from forecast.weather.gov. By targeting specific endpoints for each city, we extracted key weather details such as current conditions, temperature, and wind speeds. This process allowed us to provide tailored recommendations for clothing and comfort based on real-time weather data. The scraped information was processed and integrated into our SQL database, ensuring that users have access to the most relevant weather insights for their selected destinations.<br>
 <br>
 We then set up a virtual interface using Streamlit that pulls specific instances of courts from the database based on user queries.  We linked each court's name to a Google Maps query with the name and city, and used a Google API to pull the cover photo from each location and display it in the applet. **ADD WEATHER INTEGRATION STUFF HERE**
 <h2 align="center">Reproducibility</h2>
