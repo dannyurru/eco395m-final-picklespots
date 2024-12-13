@@ -9,6 +9,15 @@ First and foremost, we used the <a href="https://seleniumbase.io">Selenium Base 
 In addition, we used a custom web scraping script to gather accurate and up-to-date weather information from the <a href = "https://www.weather.gov">National Weather Service</a>. By targeting specific endpoints for each city, we extracted key weather details such as current conditions, temperature, and wind speeds. This process allowed us to provide tailored recommendations for clothing and comfort based on real-time weather data. The scraped information was processed and integrated into our SQL database, ensuring that users have access to the most relevant weather insights for their selected destinations.<br>
 <br>
 We then set up a virtual interface using Streamlit that pulls specific instances of courts from the database based on user queries.  We linked each court's name to a Google Maps query with the name and city, and used the Google API to pull the cover photo from each location and display it in the applet. We also used the city name input to match the selected city to the current, live weather report for that city, which gives users a good idea of what kind of weather conditions to expect.
+<h2 align="center">Virtual Interface</h2>
+<img src="images/applet_title.png" alt="Screenshot of the applet's title"><br>
+The fun font of the title and the inviting image of a pickleball court identifies the project and adds an inviting feel for its users.
+<img src="images/city_dropdown.png" alt="Screenshot of the city dropdown menu of the applet"><br>
+To avoid issues where the user enters a city that is not available, the dropdown menu gives an alphabetized list of cities that are covered by the project.
+<img src="images/courts_dropdown.png" alt="Screenshot of the minimum courts dropdown menu of the applet"><br>
+The user can also conveniently select the minimum number of courts they are looking for, to accomodate those who are bringing a large group or organizing a small tournament.
+<img src="images/results_display.png" alt="Screenshot of the results when searching for pickleball courts in Austin"><br>
+The applet then loads a list of courts, along with a helpful image and information regarding the number of courts available at that location and what kind of nets and lines there are. The name of the court takes the user to its Google Maps entry for easy navigation.
 <h2 align="center">Reproducibility</h2>
 Someone attempting to reproduce this project would take the following steps:<br>
 1. Download the required packages from requirements.txt<br>
@@ -17,8 +26,6 @@ Someone attempting to reproduce this project would take the following steps:<br>
 4. Run <code>scraping-pickleheads.py</code>, waiting until it is through all 50 cities and has created <code>courts.csv</code> in the <code>artifacts</code> folder.<br>
 5. Run <code>create_cities_table.py</code> and <code>create_courts_table.py</code> to fill in the remote database.<br>
 6. Run the command <code>streamlit run code/streamlit_app.py</code> from the top level of the repository to launch the applet.<br>
-<h2 align="center">Virtual Interface</h2>
-**insert screenshots of the applet here**
 <h2 align="center">Limitations of Project</h2>
 <li>We are only using information for the 50 most visited cities in the United States, so users searching for pickleball courts in a city not on that list, or a more suburban/rural town, would not get any results.</li>
 <li>Because this approach scrapes https://www.pickleheads.com/ once before adding its information to a database, it may lack information from any new courts that have been added since the time that the site was scraped.</li>
