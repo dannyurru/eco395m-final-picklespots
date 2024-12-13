@@ -156,7 +156,7 @@ def get_google_maps_photo(court_name, city_name, api_key):
 # Main application
 def main():
     try:
-        image_path = Path("../pickleball_stock_image.jpg")
+        image_path = Path("../images/pickleball_stock_image.jpg")
         image = Image.open(image_path)
         st.image(image, width=1000)
     except FileNotFoundError:
