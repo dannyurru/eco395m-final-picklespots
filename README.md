@@ -11,13 +11,13 @@ In addition, **FILL IN HOW WE GOT WEATHER INFORMATION**
 
 We then set up a virtual interface using Streamlit that pulls specific instances of courts from the database based on user queries.  We linked each court's name to a Google Maps query with the name and city, and used a Google API to pull the cover photo from each location and display it in the applet. **ADD WEATHER INTEGRATION STUFF HERE**
 <h2 align="center">Reproducibility</h2>
-Someone attempting to reproduce this project would take the following steps:
-1. Download the required packages from requirements.txt
-2. Set up a postgreSQL database through Google Cloud Platform, and use the setup SQL code in `safe-travels.sql` to establish the schema.
-3. Create a `.env` file that contains the proper access information for your database, as well as your Google API key.
-4. Run `scraping-pickleheads.py`, waiting until it is through all 50 cities and has created `courts.csv` in the `artifacts` folder.
-5. Run `create_cities_table.py` and `create_courts_table.py` to fill in the remote database.
-6. Run the command `streamlit run code/streamlit_app.py` from the top level of the repository to launch the applet.
+Someone attempting to reproduce this project would take the following steps:<br>
+1. Download the required packages from requirements.txt<br>
+2. Set up a postgreSQL database through Google Cloud Platform, and use the setup SQL code in <code>safe-travels.sql</code> to establish the schema.<br>
+3. Create a <code>.env</code> file that contains the proper access information for your database, as well as your Google API key.<br>
+4. Run <code>scraping-pickleheads.py</code>, waiting until it is through all 50 cities and has created <code>courts.csv</code> in the <code>artifacts</code> folder.<br>
+5. Run <code>create_cities_table.py</code> and <code>create_courts_table.py</code> to fill in the remote database.<br>
+6. Run the command <code>streamlit run code/streamlit_app.py</code> from the top level of the repository to launch the applet.<br>
 <h2 align="center">Virtual Interface</h2>
 **insert screenshots of the applet here**
 <h2 align="center">Limitations of Project</h2>
