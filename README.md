@@ -30,10 +30,10 @@ Someone attempting to reproduce this project would take the following steps:<br>
 <li>Since it is difficult to accurately measure if the courts are currently in use, a person might show up to courts only to find out that there are none open.</li>
 <h2 align="center">Extensions of Project</h2>
 <li>A good start for extending the model can be to include more cities in each state. The inclusion of all major cities in the United States can broaden the recommendations given for users of the interface for other courts.</li>
-<li>Additional information about each court, such as the weather in each city and current distance from user, could be displayed onto the interface to enhance the user's experience.</li>
+<li>Additional information about each court, such as current distance from user, could be displayed onto the interface to enhance the user's experience.</li>
 <li>We could also add an option to directly compare selected courts so that users can make a decision on which court to go to based on their specifications.</li>
 <h2 align="center">Sources</h2>
 <li>The cities we are using for this project were selected by this website as the top 50 travel destinations in the United States: https://www.aaa.com/tripcanvas/article/50-top-travel-destinations-in-the-us-CM534#methodology</li>
 <li>The list of pickleball courts comes from Pickleheads: https://www.pickleheads.com/</li>
 <li>Pictures of each court comes from Google Maps: https://www.google.com/maps</li>
-<li>We scrape weather data from: https://www.weather.gov/</li>
+<li>Weather data comes from: https://www.weather.gov/</li>
