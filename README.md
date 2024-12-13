@@ -1,25 +1,32 @@
 <h1 align="center">PickleSpots Project</h1>
 <p align="center"> <img src="https://cdn.sanity.io/images/jvolei4i/production/805cc6aceadb385fe3e80f4c905591837d7a9c8b-736x586.webp" alt="Description" width="500"> </p>
-<h2 align="center">Project Goal</h2>
-<p>Based on a list of the top 50 visited cities in the United States, we want to create an interface that will recommend nearby pickleball courts with the locations, as well as present weather data and corresponding outfit suggestions to users.</p>
 <h2 align="center">Project Description</h2>
-We scraped data for the pickleball courts in and nearby each city, along with the daily weather information for each city of the day of search, which includes the daily temperature, wind speed, humidity, and other weather statistics. The data is then turned into a CSV and uploaded to a SQL database so that we can run queries through the SQLAlchemy engine. We will connect the weather data to the corresponding cities in the pickleball data through the schema of the SQL database. The interface is created through Streamlit, an applet that projects Python code in a user-friendly manner.
+Searching for a public place where you can play pickleball with your friends?  We created an applet that recommends nearby pickleball courts based on the user's selection of one of the top 50 most visited cities in the United States, along with helpful weather information and a recommendation on what kind of clothes to wear to feel most comfortable.  The applet includes a picture of the location, and a helpful link that takes the user straight to Google Maps.
+
+We scraped data for the pickleball courts in the top 50 most-visited cities in America, along with daily weather information for each city on the day of search. The data is then turned into a CSV and uploaded to a SQL database so that we can run queries through the SQLAlchemy engine. We will connect the weather data to the corresponding cities in the pickleball data through the schema of the SQL database. The interface is created through Streamlit, an applet that projects Python code in a user-friendly manner.
 <h2 align="center">Methodology</h2>
-We are scraping data for the following information for this project:
-<li>Daily weather for the top 50 visited cities in the United States (Average Temperature and Weather Description)</li>
-<li>Prominent pickleball courts in and nearby the aforementioned cities, including data on the number of courts available at each location, and the state of the court's lines and net.</li>
-<li>Google Map locations of each court</li>
+First and foremost, we used the [Selenium Base package](https://seleniumbase.io) to simulate searches for publicly available, non-paid courts in each of the 50 cities on https://www.pickleheads.com/ and scraped the avaiable information on each instance. This method bypasses the Cloudflare security system that the site uses.  We then committed that information to a SQL database in GCP, through DBeaver and using SQLAlchemy.
+
+In addition, **FILL IN HOW WE GOT WEATHER INFORMATION**
+
+We then set up a virtual interface using Streamlit that pulls specific instances of courts from the database based on user queries.  We linked each court's name to a Google Maps query with the name and city, and used a Google API to pull the cover photo from each location and display it in the applet. **ADD WEATHER INTEGRATION STUFF HERE**
 <h2 align="center">Reproducibility</h2>
-The reproducibility of this project is doable, but requires a lot of information. To scrape the courts on Pickleheads, the Selenium package is needed in order to gain access to the web browser since the website uses Cloudflare to prevent scraping. After obtaining the information of courts in each cities, you can create a CSV which all the courts and upload it to an SQL database. 
+Someone attempting to reproduce this project would take the following steps:
+1. Download the required packages from requirements.txt
+2. Set up a postgreSQL database through Google Cloud Platform, and use the setup SQL code in `safe-travels.sql` to establish the schema.
+3. Create a `.env` file that contains the proper access information for your database, as well as your Google API key.
+4. Run `scraping-pickleheads.py`, waiting until it is through all 50 cities and has created `courts.csv` in the `artifacts` folder.
+5. Run `create_cities_table.py` and `create_courts_table.py` to fill in the remote database.
+6. Run the command `streamlit run code/streamlit_app.py` from the top level of the repository to launch the applet.
+<h2 align="center">Virtual Interface</h2>
+**insert screenshots of the applet here**
 <h2 align="center">Limitations of Project</h2>
-<li>We are only using information for the 50 most visited cities in the United States, so we are limiting the interface's responses to the data we are scraping from.</li>
-<li>We are limiting our activities to that of pickleball courts, so more urban cities might have a lower density of courts within the center and may only recommend courts further away.</li>
+<li>We are only using information for the 50 most visited cities in the United States, so users searching for pickleball courts in a city not on that list, or a more suburban/rural town, would not get any results.</li>
+<li>Because this approach scrapes https://www.pickleheads.com/ once before adding its information to a database, it may lack information from any new courts that have been added since the time that the site was scraped.</li>
 <li>Since it is difficult to accurately measure if the courts are currently in use, a person might show up to courts only to find out that there are none open.</li>
 <h2 align="center">Extensions of Project</h2>
 <li>A good start for extending the model can be to include more cities in each state. The inclusion of all major cities in the United States can broaden the recommendations given for users of the interface for other courts.</li>
-<li>The inclusion of other outdoor activitues - such as parks, kayaking, and biking paths - can give users more variety what they could do in the city they select.</li>
-<li>The inclusion of Yelp or other review sites could add people's opinions about the courts and more easily rank each court in a city</li>
-<h2 align="center">Sources of Datatsets</h2>
+<h2 align="center">Sources of Datasets</h2>
 <li>The cities we are using for this project were selected by this website as the top 50 travel destinations in the United States: https://www.aaa.com/tripcanvas/article/50-top-travel-destinations-in-the-us-CM534#methodology</li>
 <li>The list of pickleball courts comes from Pickleheads: https://www.pickleheads.com/</li>
-<li>The weather data comes from scraping the weather information on Dress my Run: https://dressmyrun.com/</li>
+<li>The weather data comes from scraping the weather information on **INSERT WEATHER INFORMATION SOURCE HERE**</li>
