@@ -3,3 +3,6 @@ pandas
 sqlalchemy
 selenium
 pillow
+openai
+bs4
+time
