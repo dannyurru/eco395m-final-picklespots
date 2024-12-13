@@ -6,7 +6,7 @@ Searching for a public place where you can play the fastest-growing sport in Ame
 <h2 align="center">Methodology</h2>
 First and foremost, we used the <a href="https://seleniumbase.io">Selenium Base package</a> to simulate searches for publicly available, non-paid courts in each of the 50 cities on https://www.pickleheads.com/ and scraped the avaiable information on each instance. This method bypasses the Cloudflare security system that the site uses.  We then committed that information to a SQL database in GCP, through DBeaver and using the <a href="https://www.sqlalchemy.org">SQLAlchemy package</a>.<br>
 <br>
-We then set up a virtual interface using Streamlit that pulls specific instances of courts from the database based on user queries.  We linked each court's name to a Google Maps query with the name and city, and used the Google API to pull the cover photo from each location and display it in the applet. 
+We then set up a virtual interface using Streamlit that pulls specific instances of courts from the database based on user queries. For each selected court, the app links the court's name to a Google Maps query with the name and city, and uses a Google API to display the court's cover photo in the applet. Additionally, the app leverages real-time weather data from our SQL database, sourced from forecast.weather.gov, to provide users with actionable insights on current temperature, wind conditions, and overall weather suitability for outdoor activities. These updates help users decide whether it's a good time to play pickleball, ensuring their comfort and safety while enjoying the fastest-growing sport in America. 
 <h2 align="center">Virtual Interface</h2>
 <img src="images/applet_title.png" alt="Screenshot of the applet's title"><br>
 <p align="center">The fun font of the title and the inviting image of a pickleball court identifies the project and adds an inviting feel for its users.</p>
@@ -36,3 +36,4 @@ Someone attempting to reproduce this project would take the following steps:<br>
 <li>The cities we are using for this project were selected by this website as the top 50 travel destinations in the United States: https://www.aaa.com/tripcanvas/article/50-top-travel-destinations-in-the-us-CM534#methodology</li>
 <li>The list of pickleball courts comes from Pickleheads: https://www.pickleheads.com/</li>
 <li>Pictures of each court comes from Google Maps: https://www.google.com/maps</li>
+<li>We scrape weather data from: https://www.weather.gov/</li>
