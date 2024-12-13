@@ -32,7 +32,6 @@ load_dotenv()
 
 BASE_URL = "https://forecast.weather.gov/"
 
-# Function to create a connection to the database
 def create_connection():
     try:
         conn = psycopg2.connect(
@@ -47,7 +46,6 @@ def create_connection():
         st.error(f"Database connection error: {e}")
         st.stop()
 
-# Function to fetch city names, latitude, and longitude from the database
 def get_available_cities():
     """
     Fetch city names along with latitude and longitude from the database.
@@ -66,7 +64,6 @@ def get_available_cities():
     conn.close()
     return cities
 
-# Function to fetch court information from the database
 def get_courts_by_city_and_number(city_name, min_courts):
     """
     Fetch court data for a selected city and minimum number of courts.
@@ -96,7 +93,6 @@ def get_courts_by_city_and_number(city_name, min_courts):
     conn.close()
     return courts
 
-# Function to retrieve weather data from NOAA
 def get_weather_data(lat, lon):
     """
     Retrieve weather data from the NOAA website based on latitude and longitude.
@@ -120,7 +116,6 @@ def get_weather_data(lat, lon):
     except Exception as e:
         return None, None, None, f"Error: {e}"
 
-# Function to retrieve Google Maps photo (optional)
 def get_google_maps_photo(court_name, city_name, api_key):
     search_query = f"{court_name} {city_name}"
     search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
@@ -145,7 +140,7 @@ def get_google_maps_photo(court_name, city_name, api_key):
 # Main application
 def main():
     try:
-        image_path = Path("..\pickleball_stock_image.jpg")
+        image_path = Path("../pickleball_stock_image.jpg")
         image = Image.open(image_path)
         st.image(image, width=1000)
     except FileNotFoundError:
@@ -178,7 +173,7 @@ def main():
                 weather_city, temperature, condition, wind_speed = get_weather_data(lat, lon)
 
             if weather_city:
-                st.subheader(f"Weather in {weather_city}")
+                st.subheader(f"Weather in {city_name}")
                 st.write(f"**Temperature**: {temperature}")
                 st.write(f"**Condition**: {condition}")
                 st.write(f"**Wind Speed**: {wind_speed}")
