@@ -11,7 +11,7 @@ In addition, we used a custom web scraping script to gather accurate and up-to-d
 We then set up a virtual interface using Streamlit that pulls specific instances of courts from the database based on user queries.  We linked each court's name to a Google Maps query with the name and city, and used the Google API to pull the cover photo from each location and display it in the applet. We also used the city name input to match the selected city to the current, live weather report for that city, which gives users a good idea of what kind of weather conditions to expect.
 <h2 align="center">Virtual Interface</h2>
 <img src="images/applet_title.png" alt="Screenshot of the applet's title"><br>
-The fun font of the title and the inviting image of a pickleball court identifies the project and adds an inviting feel for its users.
+<p align="center">The fun font of the title and the inviting image of a pickleball court identifies the project and adds an inviting feel for its users.</p>
 <img src="images/city_dropdown.png" alt="Screenshot of the city dropdown menu of the applet"><br>
 To avoid issues where the user enters a city that is not available, the dropdown menu gives an alphabetized list of cities that are covered by the project.
 <img src="images/courts_dropdown.png" alt="Screenshot of the minimum courts dropdown menu of the applet"><br>
