@@ -11,13 +11,13 @@ In addition, we used a custom web scraping script to gather accurate and up-to-d
 We then set up a virtual interface using Streamlit that pulls specific instances of courts from the database based on user queries.  We linked each court's name to a Google Maps query with the name and city, and used the Google API to pull the cover photo from each location and display it in the applet. We also used the city name input to match the selected city to the current, live weather report for that city, which gives users a good idea of what kind of weather conditions to expect.
 <h2 align="center">Virtual Interface</h2>
 <img src="images/applet_title.png" alt="Screenshot of the applet's title"><br>
-The fun font of the title and the inviting image of a pickleball court identifies the project and adds an inviting feel for its users.
+<p align="center">The fun font of the title and the inviting image of a pickleball court identifies the project and adds an inviting feel for its users.</p>
 <img src="images/city_dropdown.png" alt="Screenshot of the city dropdown menu of the applet"><br>
-To avoid issues where the user enters a city that is not available, the dropdown menu gives an alphabetized list of cities that are covered by the project.
+<p align="center">To avoid issues where the user enters a city that is not available, the dropdown menu gives an alphabetized list of cities that are covered by the project.</p>
 <img src="images/courts_dropdown.png" alt="Screenshot of the minimum courts dropdown menu of the applet"><br>
-The user can also conveniently select the minimum number of courts they are looking for, to accomodate those who are bringing a large group or organizing a small tournament.
+<p align="center">The user can also conveniently select the minimum number of courts they are looking for, to accomodate those who are bringing a large group or organizing a small tournament.</p>
 <img src="images/results_display.png" alt="Screenshot of the results when searching for pickleball courts in Austin"><br>
-The applet then loads a list of courts, along with a helpful image and information regarding the number of courts available at that location and what kind of nets and lines there are. The name of the court takes the user to its Google Maps entry for easy navigation.
+<p align="center">The applet then loads a list of courts, along with a helpful image and information regarding the number of courts available at that location and what kind of nets and lines there are. The name of the court takes the user to its Google Maps entry for easy navigation.</p>
 <h2 align="center">Reproducibility</h2>
 Someone attempting to reproduce this project would take the following steps:<br>
 1. Download the required packages from requirements.txt<br>
@@ -32,6 +32,7 @@ Someone attempting to reproduce this project would take the following steps:<br>
 <li>Since it is difficult to accurately measure if the courts are currently in use, a person might show up to courts only to find out that there are none open.</li>
 <h2 align="center">Extensions of Project</h2>
 <li>A good start for extending the model can be to include more cities in each state. The inclusion of all major cities in the United States can broaden the recommendations given for users of the interface for other courts.</li>
+<li>We could also add an option to compare courts so that users can decide which court to go to based on their specifications.</li>
 <h2 align="center">Sources</h2>
 <li>The cities we are using for this project were selected by this website as the top 50 travel destinations in the United States: https://www.aaa.com/tripcanvas/article/50-top-travel-destinations-in-the-us-CM534#methodology</li>
 <li>The list of pickleball courts comes from Pickleheads: https://www.pickleheads.com/</li>
