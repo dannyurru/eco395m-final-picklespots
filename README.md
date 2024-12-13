@@ -1,7 +1,7 @@
 <h1 align="center">PickleSpots Project</h1>
 <p align="center"> <img src="https://cdn.sanity.io/images/jvolei4i/production/805cc6aceadb385fe3e80f4c905591837d7a9c8b-736x586.webp" alt="Description" width="500"> </p>
 <h2 align="center">Final Project for ECO395M</h2>
-<h2 align="center" style="font-size: 14px;">By Divya Salian, Nicolas Salas, Danny Urrutia, Juan Guerra, Jisoo Yoo, Sindhuj Thapa</h2>
+<h2 align="center" style="font-size: 10px;">By Divya Salian, Nicolas Salas, Danny Urrutia, Juan Guerra, Jisoo Yoo, Sindhuj Thapa</h2>
 <h2 align="center">Project Description</h2>
 Searching for a public place where you can play the fastest-growing sport in America with your friends?  We created an applet that recommends pickleball courts based on the user's selection of one of the top 50 most visited cities in the United States, along with helpful weather information and a recommendation on what kind of clothes to wear to feel most comfortable.  The applet includes a picture of the location, and a helpful link that takes the user straight to Google Maps.
 <h2 align="center">Methodology</h2>
