@@ -10,13 +10,13 @@ CREATE TABLE "City"
     CONSTRAINT "PK_City" PRIMARY KEY  ("CityId")
 );
 
-CREATE TABLE "Temperature"
+CREATE TABLE "Coordinates"
 (
-    "DataId" INT NOT NULL,
-    "Date" TIMESTAMP,
-    "Temp" FLOAT,
     "CityId" INT NOT NULL,
-    CONSTRAINT "PK_Temperature" PRIMARY KEY ("DataId")
+    "City" VARCHAR(160) NOT NULL,
+    "Latitude" FLOAT,
+    "Longitude" FLOAT,
+    CONSTRAINT "PK_Coordinates" PRIMARY KEY ("CityId")
 );
 
 CREATE TABLE "Courts"
@@ -33,5 +33,5 @@ CREATE TABLE "Courts"
 /*******************************************************************************
    Create Foreign Keys
 ********************************************************************************/
-ALTER TABLE "Temperature" ADD CONSTRAINT "FK_TemperatureCityId"
+ALTER TABLE "Coordinates" ADD CONSTRAINT "FK_coordinatesCityId"
     FOREIGN KEY ("CityId") REFERENCES "City" ("CityId") ON DELETE NO ACTION ON UPDATE NO ACTION;
