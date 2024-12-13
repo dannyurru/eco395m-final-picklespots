@@ -26,11 +26,12 @@ st.markdown(
 
 st.markdown('<div class="title">🥒🎾PickleSpots🎾🥒</div>', unsafe_allow_html=True)
 st.text(
-    "This is an app designed to recommend a nearby pickleball court and corresponding outfit suggestions for any vacationer traveling to a destination of the top 50 most-visited cities in the United States. This recommendation will be based on proximity, weather, and the number of courts available at the nearby places."
+    "This is an app designed to recommend a nearby pickleball court and provide weather information to pickleballers in the top 50 most-visited cities in the United States."
 )
 load_dotenv()
 
 BASE_URL = "https://forecast.weather.gov/"
+
 
 def create_connection():
     try:
@@ -39,12 +40,13 @@ def create_connection():
             database=os.environ["DATABASE_DATABASE"],
             user=os.environ["DATABASE_USERNAME"],
             password=os.environ["DATABASE_PASSWORD"],
-            port=os.environ["DATABASE_PORT"]
+            port=os.environ["DATABASE_PORT"],
         )
         return conn
     except psycopg2.Error as e:
         st.error(f"Database connection error: {e}")
         st.stop()
+
 
 def get_available_cities():
     """
@@ -59,10 +61,14 @@ def get_available_cities():
         ORDER BY ci."Name" ASC
     """
     cursor.execute(query)
-    cities = [{"id": row[0], "name": row[1], "lat": row[2], "lon": row[3]} for row in cursor.fetchall()]
+    cities = [
+        {"id": row[0], "name": row[1], "lat": row[2], "lon": row[3]}
+        for row in cursor.fetchall()
+    ]
     cursor.close()
     conn.close()
     return cities
+
 
 def get_courts_by_city_and_number(city_name, min_courts):
     """
@@ -93,30 +99,39 @@ def get_courts_by_city_and_number(city_name, min_courts):
     conn.close()
     return courts
 
+
 def get_weather_data(lat, lon):
     """
     Retrieve weather data from the NOAA website based on latitude and longitude.
     """
     url = f"{BASE_URL}MapClick.php?lat={lat}&lon={lon}"
     response = requests.get(url)
-    soup = BeautifulSoup(response.content, 'html.parser')
+    soup = BeautifulSoup(response.content, "html.parser")
 
     try:
-        city = soup.find('h2', class_='panel-title').get_text(strip=True)
-        current_temp = soup.find('p', class_='myforecast-current-lrg').get_text(strip=True)
-        weather_condition = soup.find('p', class_='myforecast-current').get_text(strip=True)
+        city = soup.find("h2", class_="panel-title").get_text(strip=True)
+        current_temp = soup.find("p", class_="myforecast-current-lrg").get_text(
+            strip=True
+        )
+        weather_condition = soup.find("p", class_="myforecast-current").get_text(
+            strip=True
+        )
         wind_speed = (
-            soup.find('td', text='Wind Speed')
-            .find_next_sibling('td')
+            soup.find("td", text="Wind Speed")
+            .find_next_sibling("td")
             .get_text(strip=True)
-            if soup.find('td', text='Wind Speed')
+            if soup.find("td", text="Wind Speed")
             else "N/A"
         )
         return city, current_temp, weather_condition, wind_speed
     except Exception as e:
         return None, None, None, f"Error: {e}"
 
+
 def get_google_maps_photo(court_name, city_name, api_key):
+    """
+    Retrieve the cover photo for a given pickleball court from Google Places API.
+    """
     search_query = f"{court_name} {city_name}"
     search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
     search_params = {"query": search_query, "key": api_key}
@@ -137,6 +152,7 @@ def get_google_maps_photo(court_name, city_name, api_key):
                 return f"{photo_url}?maxwidth=400&photoreference={photo_reference}&key={api_key}"
     return None
 
+
 # Main application
 def main():
     try:
@@ -144,10 +160,14 @@ def main():
         image = Image.open(image_path)
         st.image(image, width=1000)
     except FileNotFoundError:
-        st.warning("Image file not found. Please ensure the file is in the working directory.")
+        st.warning(
+            "Image file not found. Please ensure the file is in the working directory."
+        )
 
     st.title("Pickleball Court Finder")
-    st.markdown("Find pickleball courts in your city and receive advice on what to wear based on the weather!")
+    st.markdown(
+        "Find pickleball courts in your city and check the weather in one fell swoop!"
+    )
 
     # Dropdown for city selection
     cities = get_available_cities()
@@ -164,13 +184,17 @@ def main():
 
     if city_name and city_name != "Select city":
         # Get latitude and longitude for the selected city
-        selected_city = next((city for city in cities if city["name"] == city_name), None)
+        selected_city = next(
+            (city for city in cities if city["name"] == city_name), None
+        )
         if selected_city:
             lat, lon = selected_city["lat"], selected_city["lon"]
 
             # Fetch weather data
             with st.spinner("Fetching weather data..."):
-                weather_city, temperature, condition, wind_speed = get_weather_data(lat, lon)
+                weather_city, temperature, condition, wind_speed = get_weather_data(
+                    lat, lon
+                )
 
             if weather_city:
                 st.subheader(f"Weather in {city_name}")
@@ -185,18 +209,23 @@ def main():
 
         if courts:
             st.subheader(
-                f"Court Information for {city_name}:" +
-                (f" (Minimum {min_courts} courts)" if min_courts else "")
+                f"Court Information for {city_name}:"
+                + (f" (Minimum {min_courts} courts)" if min_courts else "")
             )
             for court in courts:
                 court_name = court[0]
                 court_query = f"{court_name} {city_name}".replace(" ", "+")
-                google_maps_link = f"https://www.google.com/maps/search/?api=1&query={court_query}"
+                google_maps_link = (
+                    f"https://www.google.com/maps/search/?api=1&query={court_query}"
+                )
 
                 col1, col2 = st.columns([3, 2])
 
                 with col1:
-                    st.markdown(f"[**{court_name}**]({google_maps_link})", unsafe_allow_html=True)
+                    st.markdown(
+                        f"[**{court_name}**]({google_maps_link})",
+                        unsafe_allow_html=True,
+                    )
                     st.write(f"**Number of Courts**: {court[1]}")
                     st.write(f"**Lines**: {court[2]}")
                     st.write(f"**Nets**: {court[3]}")
@@ -220,7 +249,10 @@ def main():
     st.markdown("---")
     st.markdown("Data collected from pickleheads.com")
     st.markdown("Images taken from Google's Places API")
-    st.markdown("Project created by Divya, Danny, Jisoo, Juan, Nick, and Sindhuj for ECO395M")
+    st.markdown(
+        "Project created by Divya, Danny, Jisoo, Juan, Nick, and Sindhuj for ECO395M"
+    )
+
 
 if __name__ == "__main__":
     main()
