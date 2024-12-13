@@ -5,7 +5,7 @@ Searching for a public place where you can play pickleball with your friends?  W
 
 We scraped data for the pickleball courts in the top 50 most-visited cities in America, along with daily weather information for each city on the day of search. The data is then turned into a CSV and uploaded to a SQL database so that we can run queries through the SQLAlchemy engine. We will connect the weather data to the corresponding cities in the pickleball data through the schema of the SQL database. The interface is created through Streamlit, an applet that projects Python code in a user-friendly manner.
 <h2 align="center">Methodology</h2>
-First and foremost, we used the [Selenium Base package](https://seleniumbase.io) to simulate searches for publicly available, non-paid courts in each of the 50 cities on https://www.pickleheads.com/ and scraped the avaiable information on each instance. This method bypasses the Cloudflare security system that the site uses.  We then committed that information to a SQL database in GCP, through DBeaver and using SQLAlchemy.
+First and foremost, we used the <a href="https://seleniumbase.io">Selenium Base package</a> to simulate searches for publicly available, non-paid courts in each of the 50 cities on https://www.pickleheads.com/ and scraped the avaiable information on each instance. This method bypasses the Cloudflare security system that the site uses.  We then committed that information to a SQL database in GCP, through DBeaver and using SQLAlchemy.
 
 In addition, **FILL IN HOW WE GOT WEATHER INFORMATION**
 
