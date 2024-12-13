@@ -117,10 +117,10 @@ def get_weather_data(lat, lon):
             strip=True
         )
         wind_speed = (
-            soup.find("td", text="Wind Speed")
+            soup.find("td", string="Wind Speed")
             .find_next_sibling("td")
             .get_text(strip=True)
-            if soup.find("td", text="Wind Speed")
+            if soup.find("td", string="Wind Speed")
             else "N/A"
         )
         return city, current_temp, weather_condition, wind_speed
@@ -156,7 +156,7 @@ def get_google_maps_photo(court_name, city_name, api_key):
 # Main application
 def main():
     try:
-        image_path = Path("pickleball_stock_image.jpg")
+        image_path = Path("images/pickleball_stock_image.jpg")
         image = Image.open(image_path)
         st.image(image, width=1000)
     except FileNotFoundError:
