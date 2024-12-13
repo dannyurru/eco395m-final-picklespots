@@ -8,7 +8,7 @@ First and foremost, we used the <a href="https://seleniumbase.io">Selenium Base 
 <br>
 In addition, we used a custom web scraping script to gather accurate and up-to-date weather information from the <a href = "https://www.weather.gov">National Weather Service</a>. By targeting specific endpoints for each city, we extracted key weather details such as current conditions, temperature, and wind speeds. This process allowed us to provide tailored recommendations for clothing and comfort based on real-time weather data. The scraped information was processed and integrated into our SQL database, ensuring that users have access to the most relevant weather insights for their selected destinations.<br>
 <br>
-We then set up a virtual interface using Streamlit that pulls specific instances of courts from the database based on user queries.  We linked each court's name to a Google Maps query with the name and city, and used a Google API to pull the cover photo from each location and display it in the applet. **ADD WEATHER INTEGRATION STUFF HERE**
+We then set up a virtual interface using Streamlit that pulls specific instances of courts from the database based on user queries.  We linked each court's name to a Google Maps query with the name and city, and used the Google API to pull the cover photo from each location and display it in the applet. We also used the city name input to match the selected city to the current, live weather report for that city, which gives users a good idea of what kind of weather conditions to expect.
 <h2 align="center">Reproducibility</h2>
 Someone attempting to reproduce this project would take the following steps:<br>
 1. Download the required packages from requirements.txt<br>
