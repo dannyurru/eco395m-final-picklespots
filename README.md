@@ -1,7 +1,7 @@
 <h1 align="center">PickleSpots Project</h1>
 <p align="center"> <img src="https://cdn.sanity.io/images/jvolei4i/production/805cc6aceadb385fe3e80f4c905591837d7a9c8b-736x586.webp" alt="Description" width="500"> </p>
 <h2 align="center">Project Description</h2>
-Searching for a public place where you can play pickleball with your friends?  We created an applet that recommends nearby pickleball courts based on the user's selection of one of the top 50 most visited cities in the United States, along with helpful weather information and a recommendation on what kind of clothes to wear to feel most comfortable.  The applet includes a picture of the location, and a helpful link that takes the user straight to Google Maps.
+Searching for a public place where you can play the fastest-growing sport in America with your friends?  We created an applet that recommends pickleball courts based on the user's selection of one of the top 50 most visited cities in the United States, along with helpful weather information and a recommendation on what kind of clothes to wear to feel most comfortable.  The applet includes a picture of the location, and a helpful link that takes the user straight to Google Maps.
 <h2 align="center">Methodology</h2>
 First and foremost, we used the <a href="https://seleniumbase.io">Selenium Base package</a> to simulate searches for publicly available, non-paid courts in each of the 50 cities on https://www.pickleheads.com/ and scraped the avaiable information on each instance. This method bypasses the Cloudflare security system that the site uses.  We then committed that information to a SQL database in GCP, through DBeaver and using the <a href="https://www.sqlalchemy.org">SQLAlchemy package</a>.<br>
 <br>
