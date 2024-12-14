@@ -8,6 +8,10 @@ First and foremost, we used the <a href="https://seleniumbase.io">Selenium Base 
 In addition, we used a custom web scraping script to gather accurate and up-to-date weather information from forecast.weather.gov. By targeting specific endpoints for each city, we extracted key weather details such as current conditions, temperature, and wind speeds. This process allowed us to provide tailored recommendations for clothing and comfort based on real-time weather data. The scraped information was processed and integrated into our SQL database, ensuring that users have access to the most relevant weather insights for their selected destinations.
 <br>
 Using Streamlit, we created a virtual interface that retrieves specific courts from the database based on user queries. For each selected court, the app links the court's name to a Google Maps query with the name and city and uses a Google API to display the court's cover photo in the applet. Additionally, the app leverages real-time weather data from our SQL database, sourced from forecast.weather.gov, to provide users with actionable insights on current temperature, wind conditions, and overall weather suitability for outdoor activities. These updates help users decide whether it's a good time to play pickleball, ensuring their comfort and safety while enjoying the fastest-growing sport in America. 
+
+<h2 align="center">Project Flow</h2>
+ <p align="center"> <img src="images\project_flow.png" alt="Description" width="500"> </p>
+
 <h2 align="center">Virtual Interface</h2>
 <img src="images/applet_title.png" alt="Screenshot of the applet's title"><br>
 <p align="center">The fun font of the title and the inviting image of a pickleball court identify the project and add an inviting feel for its users.</p>
