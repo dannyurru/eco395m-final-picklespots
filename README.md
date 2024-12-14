@@ -4,13 +4,15 @@
 <h2 align="center">Project Description</h2>
 Searching for a public place where you can play the fastest-growing sport in America with your friends?  We created an applet that recommends pickleball courts based on the user's selection of one of the top 50 most visited cities in the United States.  The applet includes a picture of the location and a helpful link that takes the user straight to Google Maps.
 <h2 align="center">Methodology</h2>
-First and foremost, we used the <a href="https://seleniumbase.io">Selenium Base package</a> to simulate searches for publicly available, non-paid courts in each of the 50 cities on https://www.pickleheads.com/ and scraped the available information on each instance. This method bypasses the Cloudflare security system that the site uses.  We then committed that information to a SQL database in GCP, through DBeaver and using the <a href="https://www.sqlalchemy.org">SQLAlchemy package</a>.<p>
+First and foremost, we used the <a href="https://seleniumbase.io">Selenium Base package</a> to simulate searches for publicly available, non-paid courts in each of the 50 cities on https://www.pickleheads.com/ and scraped the available information on each instance. This method bypasses the Cloudflare security system that the site uses.  We then committed that information to a SQL database in GCP, through DBeaver and using the <a href="https://www.sqlalchemy.org">SQLAlchemy package</a>.<p><br>
 In addition, we developed a custom web scraping script to collect accurate and up-to-date weather information directly from forecast.weather.gov. By targeting specific API endpoints for each city, we extracted essential weather data, including current conditions, temperature, and wind speeds. This approach enabled us to capture real-time weather updates, which were crucial for generating personalized recommendations. 
 <br>
 
 The scraped data underwent a structured processing pipeline to ensure its accuracy, consistency, and relevance. It was then seamlessly integrated into our SQL database, enabling efficient storage and retrieval. This integration allowed us to provide users with dynamic and timely weather insights for their selected destinations. By leveraging this real-time data, we were able to offer more tailored suggestions on appropriate clothing, travel essentials, and overall comfort, enhancing the user experience and ensuring preparedness for varying weather conditions.
+
 <br>
 Using Streamlit, we built an interactive interface that allows users to search for specific pickleball courts from our database. For each selected court, the app generates a Google Maps query using the court's name and city, while also displaying the court's cover photo through the Google API. To enhance user experience, the app provides real-time weather updates sourced from forecast.weather.gov and stored in our SQL database. These updates include current temperature, wind conditions, and overall weather suitability for outdoor activities. By offering timely weather insights, users can make informed decisions about when to play pickleball, prioritizing both comfort and safety while engaging in one of the fastest-growing sports in the U.S. 
+<br>
 
 <h2 align="center">Project Flow</h2>
  <p align="center"> <img src="images\project_flow.png" alt="Description" width="500"> </p>
