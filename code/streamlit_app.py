@@ -1,11 +1,6 @@
 from pathlib import Path
 import streamlit as st
 import psycopg2
-import os
-import requests
-from dotenv import load_dotenv
-from PIL import Image
-from bs4 import BeautifulSoup
 
 BASE_URL = "https://forecast.weather.gov/"
 
